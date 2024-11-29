@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Iniciar Sesión</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'loginStyle.css' %}">
+
+</head>
+
+<body>
+    
+    <div class="Content-loguin">
+        <h2>Iniciar Sesión</h2>
+        <form method="post">
+            <a href="{% url 'home' %}">volver al inicio</a>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Iniciar Sesión</button>
+            <p>Aun no te encuentras registrado: <a href="{% url 'signup' %}">registrate aqui</a></p>
+
+        </form>
+    </div>
+
+</body>
+
+</html>

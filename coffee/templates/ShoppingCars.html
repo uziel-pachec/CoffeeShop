@@ -1,0 +1,29 @@
+<title>ShoppingCars</title>
+{% extends 'shoppinBase.html' %}
+
+{% block content %}
+
+<div class="row" style="display: flex;">
+  {% for pedido_ventaDetalle in pedido_ventaDetalle %}  <!--bloque de nuestra para las bebidas-->
+  
+  <div class="col">
+    <div class="card"
+      style="width: 18rem; border-radius: 18px; padding: 5px; margin-bottom: 5px; background-color:  rgba(187, 248, 234, 0.883);">
+      <img src="{{ pedido_ventaDetalle.productoAsociado.image }}" class="card-img-top" alt="..."
+        style="border-top-left-radius: 18px; border-top-right-radius: 18px; width: 100%;">
+      <div class="card-body">
+        <h5 class="card-title"> {{ pedido_ventaDetalle.productoAsociado.name}}</h5>
+        <p class="card-text">Cantidad = {{ pedido_ventaDetalle.cantidad }}</p>
+        <p class="card-text">total = ${{ pedido_ventaDetalle.total }}</p>
+        <p class="card-text">{{ pedido_ventaDetalle.fecha }}</p>
+        
+        
+      </div>
+    </div>
+  </div>
+  
+  {% endfor %}
+  
+</div>
+
+{% endblock %}

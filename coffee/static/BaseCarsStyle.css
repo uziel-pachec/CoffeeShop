@@ -1,0 +1,43 @@
+.container{
+    padding: 12px; 
+    border: 12px solid rgba(0, 0, 0, 0.151); 
+    margin: 6% auto 2% auto; 
+    background-color: rgba(255, 255, 255, 0.295); 
+    border-radius: 4rem;
+}
+
+.form-control{margin-left: auto;}
+
+.container .form-inline button {margin-right: auto;}
+
+.father-container{width: 80%; margin: auto;}
+
+.father-container .one{
+    width: 100%; 
+    background-color: rgba(226, 209, 209, 0.253); 
+    float: right; top: 40%; 
+    text-align: center; 
+    font-size: 12px; 
+    margin-bottom: 5rem;
+    
+}
+
+.co-noresult{
+    border-radius: 18px;  
+    background-color: rgba(245, 231, 214, 0.479); 
+    margin: auto;
+    text-align: center;
+    width: 50%;
+}
+
+
+
+
+
+
+
+
+
+
+
+

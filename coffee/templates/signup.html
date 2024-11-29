@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registro</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'loginStyle.css' %}">
+    
+</head>
+<body style="
+background-image: url('{{ fondo.image }}');
+
+background-size: cover;
+background-attachment: fixed;
+background-repeat: no-repeat;
+background-position: center;
+margin: 0;
+     ">
+
+    <div class="Content-loguin signup">
+        <h2>Crear una cuenta</h2>
+        <form class="form_C" method="post" style=" font-size: 12px;">
+            <a href="{% url 'home' %}">volver al inicio</a>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Registrar</button><br>
+            
+        </form>
+    </body>
+    </div>
+
+   
+</html>

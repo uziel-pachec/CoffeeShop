@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ordenar {{ coffee.name }}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'styleProyect.css' %}">
+    <script src="{% static 'function.js' %}"></script>
+<!---->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Obtener el precio del café desde la variable Django
+            var price = {{ coffee.price }};
+            var quantityInput = document.getElementById("cantidad");
+            var totalDisplay = document.getElementById("total");
+
+            // Actualiza el total en tiempo real
+            quantityInput.addEventListener('input', function() {
+                var quantity = parseFloat(quantityInput.value) || 0;
+                var total = quantity * price;
+                totalDisplay.innerText = "Total: $" + total.toFixed(2);
+            });
+
+            // Verificación antes de enviar el formulario
+            document.getElementById("pedidoForm").addEventListener("submit", function(event) {
+                var isValid = true;
+                var fields = ["cantidad",  "targeta_credito"];
+
+                // Verificar cada campo para asegurar que no esté vacío
+                fields.forEach(function(field) {
+                    var input = document.getElementById(field);
+                    if (input.value.trim() === "") {
+                        input.classList.add("is-invalid");
+                        isValid = false;
+                    } else {
+                        input.classList.remove("is-invalid");
+                    }
+                });
+
+                // Si algún campo está vacío, prevenir el envío del formulario
+                if (!isValid) {
+                    event.preventDefault();
+                    alert("Por favor, completa todos los campos.");
+                }
+            });
+        });
+    </script>
+
+     <style>
+        .is-invalid {
+            border-color: red;
+        }
+    </style>
+</head>
+<body style="background-image: url('{{ fondo.image }}');background-size: cover;background-repeat: no-repeat;background-attachment: fixed;background-position: center;">
+    <div class="container-form">
+        <img src="{{ coffee.image }}" class="card-img-top" alt="..." style="border-top-left-radius: 18px; border-top-right-radius: 18px;">
+        <h1>Ordenar {{ coffee.name }}</h1>
+        <p>Precio unitario: ${{ coffee.price }}</p>
+        
+        <!-- Formulario de Pedido -->
+        <form id="pedidoForm" method="post">
+            {% csrf_token %}
+            
+            <!-- Campo de Cantidad -->
+            <div class="form-group">
+                <label for="cantidad">Cantidad</label>
+                <input type="number" id="cantidad" name="cantidad" class="form-control">
+            </div>
+    
+            
+            <!-- Campo de Tarjeta de Crédito -->
+            <div class="form-group">
+                <label for="targeta_credito">Tarjeta de Crédito</label>
+                <input type="text" id="targeta_credito" name="targeta_credito" class="form-control">
+            </div>
+    
+            <button type="submit" class="btn btn-primary">Agregar al carrito</button>
+            <a style="text-decoration: none;" href="{% url 'home' %}" class="btn btn-primary">Cancelar</a>
+        </form>
+        
+        <p id="total">Total: $0.00</p>
+    </div>
+</body>
+</html>

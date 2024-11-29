@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'BaseCarsStyle.css' %}">
+  <title>Pedido Exitoso</title>
+
+</head>
+
+<body style="background-image: url('{{ fondo.image }}');background-size: cover;background-repeat: no-repeat;background-attachment: fixed;background-position: center;">
+  
+  <nav class="navbar navbar-expand-lg navbar-light bg-light style="margin-bottom: 2.6rem;">
+    <a class="navbar-brand" href="">CAFETERÍA</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'inicio' %}">Inicio <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'home' %}" style="color: rgb(0, 0, 0);">menu</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link " href="{% url 'ShoppingCars' %}" tabindex="-1" aria-disabled="true"
+            style="color: black; background-image: url('https://th.bing.com/th/id/OIP.g4gJ2ofCdliajaa-s22VDgHaHa?rs=1&pid=ImgDetMain'); background-size: cover; width: 2.5rem; border-radius: 18px; height:2.5rem;"></a>
+        </li>
+      </ul>
+      <h4
+        style="color: rgb(19, 2, 2); margin: .4; padding: 0px 12px; border-radius: 12px;">
+        sección de pedidos</h4>
+        
+    </div>
+  </nav>
+
+  
+
+  <div class="father-container" style="margin-top: 2.5rem;">
+    <div class="one">
+      Gracias por tu compra. Pronto recibirás una confirmación por correo electrónico. <br>
+      ingresa tu correo electronico para poder visualizar tus pedidos
+    </div>
+    <div>
+      {% block content %}
+      {% endblock %}
+
+    </div>
+  </div>
+  <br><br><br>
+</body>
+
+</html>

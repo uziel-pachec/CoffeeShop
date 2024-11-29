@@ -1,0 +1,64 @@
+body{
+    background: rgb(41, 16, 24);
+    text-align: center;
+    align-content: center;
+    margin: auto;
+}
+
+.Content-loguin{
+    
+    width: 50%;
+    margin: 10% auto;
+    padding: 12px;
+    border-radius: 20px ;
+    border: solid white 3px;
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+}
+
+.Content-loguin button{
+    background-color: white;
+    font-size: 16px;
+    border-radius: 5px 12px;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.Content-loguin button:hover{
+    background-color: rgb(47, 2, 61);
+    font-size: 18px;
+    border-radius: 5px 12px;
+    padding: 8px;
+    color: white;
+    cursor: pointer;
+}
+
+.Content-loguin h2{
+    background-color: wheat;
+    margin: 0;
+    color: black;
+    border-radius: 12px 12px 0px 0px;
+}
+
+.Content-loguin form{
+    border: solid wheat;
+    border-radius: 0px 0px 12px 12px;
+}
+
+.Content-loguin a{
+   margin: 12px;
+   font-size: 12px;
+   text-decoration: none;
+   color: yellow;
+    
+}
+
+.signup button{
+    margin: 20px;
+}
+
+.form_C{
+    background-color: rgba(0, 0, 0, 0.74);
+}
+

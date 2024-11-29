@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>inicio</title>
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contenedor {
+      flex: 1;
+    }
+
+    footer {
+      background-color: rgb(37, 34, 29);
+      color: aliceblue;
+      text-align: center;
+      width: 100%;
+      font-size: 12px;
+    }
+
+  
+  </style>
+</head>
+
+<body
+  style="background-image: url('{{ fondo.image }}');background-size: cover;background-repeat: no-repeat;background-attachment: fixed;background-position: center;">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-bottom: 2.6rem;">
+    <a class="navbar-brand" href="">CAFETERÍA</a>
+    <button  class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span  class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="inicio">Inicio <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="home" style="color: rgb(22, 20, 20);">menu</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false" style="color: rgb(13, 13, 13);">
+            Opciones
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Cancelar compra</a>
+            <!--<a class="dropdown-item" href="#">Estado de envio</a>-->
+            <div class="dropdown-divider"></div>
+            <ul>
+              <!-- Itera sobre la lista de posts -->
+              {% for post in posts %}
+              <!-- Verificación para asegurar que 'post.pk' no está vacío -->
+              {% if post.pk %}
+              <li>
+                <!-- Enlace al detalle del post, utilizando el 'pk' -->
+                <a style="text-decoration: none;" href="{% url 'post_detail' post.pk %}">{{ post.title }}</a>
+              </li>
+              {% else %}
+              <li>
+                <!-- Mensaje alternativo si el 'pk' está vacío -->
+                <span>Post sin ID válido</span>
+              </li>
+              {% endif %}
+              {% endfor %}
+            </ul>
+
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="ShoppingCars" tabindex="-1" aria-disabled="true"
+            style="color: black; background-image: url('https://th.bing.com/th/id/OIP.g4gJ2ofCdliajaa-s22VDgHaHa?rs=1&pid=ImgDetMain'); background-size: cover; width: 2.5rem; border-radius: 18px; height:2.5rem;"></a>
+        </li>
+      </ul>
+      <h2
+        style="color: rgb(101, 66, 66); margin: .4; padding: 0px 12px; border-radius: 12px;">
+        Cafe pára sentirte bien</h2>
+    </div>
+  </nav>
+
+  <div class="contenedor">
+    <div style=" color: white;" class="container">
+      <div class="row">
+        <div class="col">
+          <div class="card"
+            style="width: 18rem; border-radius: 18px;  background-color: rgba(36, 29, 29, 0.527);">
+            <div class="card-body">
+              <h5 style="color: rgb(161, 214, 250);">El café y yo, una historia interesante</h5><br> ¿Sabias que?<br> La
+              taza de café más grande jamás creada fue de 26,939.22 litros. El café preparado en México, el 10 de
+              diciembre de 2022, requirió 300 kg de café y actualmente ostenta el récord Guinness.
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div 
+            style="width: 19rem; border-radius: 18px;  background-color: rgba(234, 223, 223, 0.303);">
+            <div class="card-body" style="font-size: 13px; color: black;">
+              <b>¡¡Somos una tienda que te entrega el dulce nectar del cafe, el manjar de los dioses!!</b>
+            </div>
+          </div>
+        </div>
+
+        
+        <div style="height: 17.5rem; width: 17.5rem; background-color: rgba(240, 255, 248, 0.237); background-image: url('{{ modelo.image }}');
+        background-repeat: no-repeat;
+        background-size: cover; border-radius: 51%;  text-align: center;
+        margin-bottom: 13%;" >
+          <h5 style="border: solid 2px white; border-radius: 12px; background-color: rgb(4, 94, 4);">¡¡Disfruta de un delicioso Cafe!!</h5>
+          <div style="color: rgba(239, 149, 39, 0.928); margin-top: 11rem;" >
+            <b>excelente calidad <br> en servicio</b>
+          </div>
+          <div style="font-size: 12px; border: solid 2px white; border-radius: 12px; background-color: rgb(4, 94, 4);"">
+            horarios de atencion !!
+            <br>
+            lunes a Sabado: 7:00 a.m - 9:30 p.m <br>
+            domingos: 8:30 a.m - 10:00 p.m 
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  <div>
+    <footer class="text-center" style="height: 20; top: 150%; bottom: 0px;">
+      <div class="row">
+        <div class="col">
+          <div style="width: 100%; background-color: rgb(37, 34, 29);">
+            <div class="card-body">
+              <h6>CAFETERÍA</h6>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div style="width: 100%; background-color: rgb(37, 34, 29);">
+            <div class="card-body">
+              <b>Sobre nosotros</b><br>
+              <p>Ubicaciones<br>Envios</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div style="width: 100%; background-color: rgb(37, 34, 29);">
+            <div class="card-body">
+              <b>Ayuda</b><br>
+              <p>Cel: 771123456<br>correo: CoffeeShop@gmail.com</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div style="width: 100%; background-color: rgb(37, 34, 29);">
+            <div class="card-body">
+              <b>Tienda</b><br>
+              <p>devoluciones<br>Ofertas</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ post.title }}</title>
+</head>
+<body style="
+background-image: url('{{ fondo.image }}'); background-size: cover; background-attachment: fixed; background-repeat: no-repeat; background-position: center;">
+    <h1 style="color: aliceblue; text-align: center; background-color: rgba(7, 8, 8, 0.596); margin: auto; border-radius: 12px;">{{ post.title }}</h1>
+    <div style="width: 65%; margin: auto; text-align: center; background-color: rgba(253, 246, 246, 0.432); padding: 1rem; border-radius: 30px; margin-top: 12px;">
+        
+        <p style="text-align: justify; font-size: large; width: 70%; margin: auto; padding: 17px 0 22px 0;">{{ post.content }}</p>
+
+        <ul style="text-align: left; font-family: Arial, Helvetica, sans-serif; font-size: 14px; width: 70%; margin: 0 auto;">
+            {% for comment in comments %}
+            <li>
+                <p style="background-color: rgba(255, 255, 255, 0.76); width: 35%; padding: 1px 12px; border-radius: 12px; margin-left: auto;">
+                    <strong>cliente</strong> - {{ comment.created_at }}
+                </p>
+                <p style="border-bottom: solid 2px rgba(255, 255, 255, 0.733); padding-bottom: 12px; color: rgb(18, 18, 19);">{{ comment.text }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+    
+        <h3>Añadir un comentario</h3>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" style="font-size: 18px;">Enviar</button>
+            <a style="text-decoration: none; color: rgb(138, 4, 27); font-size: 18px;" href="{% url 'home' %}" class="btn btn-primary">Cancelar</a>
+        </form>
+    </div>
+
+
+    
+</body>
+</html>
